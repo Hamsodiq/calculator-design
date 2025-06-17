@@ -1,0 +1,65 @@
+
+body{
+    background-color: #bbb;
+}
+
+div.form{
+    width: 320px;
+    padding: 10px;
+    margin: auto;
+    background-color: black;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    top: 60px;
+}
+
+div.form form input[type="text"]{
+    width: 95%;
+    padding: 10% 3%;
+    background-color: black;
+    border: none;
+    text-align: right;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 10px;
+    
+}
+
+div.form form input[type="button"]{
+    width: 75px;
+    height: 55px;
+    border: 1px solid;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+#zeroStyling{
+    width: 150px;
+    background-color:aliceblue;
+    
+    
+}
+
+#equalToStyling{
+    height:120px;
+    position: absolute;
+    margin-left: -70px;
+    margin-top: -65px;
+    background-color: red;
+
+}
+
+.yellowButton{
+    background-color: yellow;
+}
+
+#three{
+    margin-right: 75px;
+}
+
+#dot{
+    margin-right: 80px;
+}
