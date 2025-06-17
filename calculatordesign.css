@@ -3,6 +3,11 @@ body{
     background-color: #bbb;
 }
 
+
+#result{
+    line-height: 20px;
+}
+
 div.form{
     width: 320px;
     padding: 10px;
@@ -43,7 +48,7 @@ div.form form input[type="button"]{
     
 }
 
-#equalToStyling{
+#equalTo{
     height:120px;
     position: absolute;
     margin-left: -70px;
