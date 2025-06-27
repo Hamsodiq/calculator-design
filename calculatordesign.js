@@ -36,3 +36,28 @@ const equalToBtn = document.getElementById("equalTo");
       }
  })
 
+ const acBtn = document.getElementById("ac");
+ acBtn.addEventListener("click", (e) => {
+
+    displayScreen.value = '';
+    
+ })
+
+ const delBtn = document.getElementById("del");
+ delBtn.addEventListener("click", (e) => {
+
+    displayScreen.value =  displayScreen.value.slice(0, -1);
+    
+    
+ })
+
+ 
+// const delButton = document.getElementById('del');
+// delButton.addEventListener('click', () => {
+//     document.getElementById('display') = display.value.slice(0, -1); 
+// });
+
+// function myFunction()
+//     {
+//         document.getElementById("display").value = (document.getElementById("display").value.getLength) - 1;
+//     }
