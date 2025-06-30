@@ -4,43 +4,74 @@ const displayScreen = document.getElementById("display");
 
 let beforeOperationValue = 0;
 let afterOperationValue = 0;
+let clickedOperator;
 
+//Append onClickListener to all number button
 const btns = document.querySelectorAll('.btn'); //
 btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-
-        if(beforeOperationValue != 0){
-            afterOperationValue += btn.value;
-        }
+        // if(beforeOperationValue != 0){
+        //     afterOperationValue += btn.value;
+        // }
         displayScreen.value += btn.value;
-
         e.preventDefault();
     })
 });
 
+// const plusBtn = document.getElementById('plusBtn');
+// plusBtn.addEventListener('click', (e) => {
+//     // check if our display is empty
+//     if(displayScreen.value.length !=0){
+//         beforeOperationValue = parseInt(displayScreen.value);
+//         displayScreen.value = '';
+//     }
+// });
 
+// add a listener to our
 const operatorsBtn = document.querySelectorAll('.operatorBtn'); //
 operatorsBtn.forEach(operator => {
     operator.addEventListener('click', (e) => {
-         if(beforeOperationValue == 0){
-             beforeOperationValue = parseInt(displayScreen.value);
-         }
-        displayScreen.value += operator.value;
+        if(displayScreen.value != "" ){
+            clickedOperator = operator.value;
+            operationHandler();
+            displayScreen.value = '';
+        }
     })
 });
+
+function operationHandler() {
+    if(clickedOperator == '+'){
+        beforeOperationValue = beforeOperationValue + parseInt(displayScreen.value);
+        displayScreen.value =  beforeOperationValue;
+    } else if(clickedOperator == '-'){
+        beforeOperationValue = beforeOperationValue - parseInt(displayScreen.value);
+        displayScreen.value =  beforeOperationValue;
+    } else if(clickedOperator == '*'){
+        beforeOperationValue = beforeOperationValue * parseInt(displayScreen.value);
+        displayScreen.value =  beforeOperationValue;
+    } else if(clickedOperator == '/'){
+        beforeOperationValue = beforeOperationValue / parseInt(displayScreen.value);
+        displayScreen.value =  beforeOperationValue;
+    }else {
+        displayScreen.value = beforeOperationValue;
+    }
+}
+
 
 const equalToBtn = document.getElementById("equalTo");
  equalToBtn.addEventListener("click", (e) => {
       if(displayScreen.value != ""){
-           displayScreen.value =  beforeOperationValue + parseInt(afterOperationValue);
+          operationHandler();
       }
- })
+ });
+
+
+
 
  const acBtn = document.getElementById("ac");
  acBtn.addEventListener("click", (e) => {
-
     displayScreen.value = '';
-    
+    beforeOperationValue = 0;
  })
 
  const delBtn = document.getElementById("del");
