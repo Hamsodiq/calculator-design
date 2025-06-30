@@ -40,7 +40,8 @@ operatorsBtn.forEach(operator => {
 });
 
 function operationHandler() {
-    if(clickedOperator == '+'){
+    console.log(clickedOperator)
+    if(clickedOperator == '+' || beforeOperationValue == 0 ){
         beforeOperationValue = beforeOperationValue + parseInt(displayScreen.value);
         displayScreen.value =  beforeOperationValue;
     } else if(clickedOperator == '-'){
@@ -57,29 +58,26 @@ function operationHandler() {
     }
 }
 
-
 const equalToBtn = document.getElementById("equalTo");
+ equalToBtn.onmouseover = function(){
+     equalToBtn.style.backgroundColor = "purple";
+ }
  equalToBtn.addEventListener("click", (e) => {
       if(displayScreen.value != ""){
           operationHandler();
       }
  });
 
-
-
-
  const acBtn = document.getElementById("ac");
  acBtn.addEventListener("click", (e) => {
     displayScreen.value = '';
     beforeOperationValue = 0;
+    clickedOperator = '';
  })
 
  const delBtn = document.getElementById("del");
  delBtn.addEventListener("click", (e) => {
-
     displayScreen.value =  displayScreen.value.slice(0, -1);
-    
-    
  })
 
  
